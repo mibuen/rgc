@@ -15,7 +15,7 @@ export function InitializeFotos($form, proyecto) {
 	$itemTitle.innerHTML = `${vistas[0].item}`;
 	$fotoInicial.src = `${awsUrl}/${vistas[0].inicio}`;
 	$fotoFinal.src = vistas[0].final.includes('tbd')
-		? 'assets/camera.png'
+		? '/camera.png'
 		: `${awsUrl}/${vistas[0].final}`;
 	btnNext.addEventListener('click', () => browse(1, vistas, awsUrl));
 	btnPrevious.addEventListener('click', () => browse(-1, vistas, awsUrl));

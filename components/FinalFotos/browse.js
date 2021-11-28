@@ -14,8 +14,6 @@ export function browse(inc, vistas, url) {
 	//console.log({ inicio, final });
 	$itemTitle.innerHTML = item;
 	$fotoInicial.src = `${url}/${inicio}`;
-	$fotoFinal.src = final.includes('tbd')
-		? '/assets/camera.png'
-		: `${url}/${final}`;
+	$fotoFinal.src = final.includes('tbd') ? '/camera.png' : `${url}/${final}`;
 	return;
 }
