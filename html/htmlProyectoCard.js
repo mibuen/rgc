@@ -1,4 +1,4 @@
-import { Good } from '../assets/good';
+import { Good } from '../assets/Good';
 import { Cancel } from '../assets/Cancel';
 export const htmlProyectoCard = (data) => {
 	const {
