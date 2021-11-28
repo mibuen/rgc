@@ -1,4 +1,3 @@
-import { SPINNER } from '../../assets/spinner';
 export function Loader() {
 	const $loader = document.createElement('div');
 	$loader.id = 'loader';

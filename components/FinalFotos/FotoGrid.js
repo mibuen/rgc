@@ -3,8 +3,8 @@ export function FotoGrid() {
 	$grid.id = 'foto-grid';
 	$grid.classList.add(
 		'grid',
-		'w-full',
-		'grid-cols-2',
+		'sm:w-full',
+		'sm:grid-cols-2',
 		'gap-4',
 		'py-2',
 		'text-center'

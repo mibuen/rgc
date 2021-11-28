@@ -5,7 +5,7 @@ export function htmlGridFotos() {
   <div
 
     id="grid-header"
-    class="flex justify-center space-x-4 text-2xl bg-indigo-300 border-2 border-black  sm:col-span-2"
+    class="flex justify-center space-x-4 text-2xl bg-indigo-300 border-2 border-black  col-span-2"
   >
     <h4 id="title-sitio"></h4>
     <h4 id="title-item"></h4>

@@ -2,6 +2,7 @@ import { awsForm } from './awsForm';
 import { awsSignedPost } from './awsSignedPost';
 import { awsUpload } from './awsUpload';
 import { saveFotoMongo } from './saveFotoMongo';
+import { Loader } from '../../components/componentFolder/Loader';
 export async function awsFileUploadHandler(
 	cotizacionId,
 	proyectoId,
@@ -11,6 +12,8 @@ export async function awsFileUploadHandler(
 ) {
 	try {
 		//get signed post
+		const $loader = document.querySelector('#loader');
+		$loader.classList.toggle('hidden');
 		const signedPost = await awsSignedPost(cotizacionId, proyectoId, file.name);
 
 		const { url, fields } = signedPost;
@@ -27,6 +30,7 @@ export async function awsFileUploadHandler(
 				seq,
 				fields.key
 			);
+			$loader.classList.toggle('hidden');
 			return addToMongo;
 		}
 	} catch (error) {

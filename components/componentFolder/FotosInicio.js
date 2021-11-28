@@ -21,10 +21,12 @@ export function FotosInicio() {
 		const proyectoId = $formSubir.proyectoId.value;
 		const fotoFile = tomar.files[0];
 		const tipo = 'inicio';
+		const seq = 'NA';
 		const result = await awsFileUploadHandler(
 			cotizacionId,
 			proyectoId,
 			tipo,
+			seq,
 			fotoFile
 		);
 		if (result.modified === 1) {

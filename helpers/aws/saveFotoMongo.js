@@ -2,7 +2,7 @@ import { mainUrl } from '../../components/init';
 export async function saveFotoMongo(cotizacionId, proyectoId, tipo, seq, key) {
 	//console.log(tipo, key);
 	const data = { cotizacionId, proyectoId, tipo, seq, key };
-	if (seq === '') delete data.seq;
+	if (seq === 'NA') delete data.seq;
 	//console.log('DATA', data);
 	const postOptions = {
 		method: 'POST',
