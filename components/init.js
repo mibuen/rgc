@@ -47,7 +47,7 @@ export const init = [
 	{
 		coments: 'render forma cotizacion nueva o para actualizar',
 		page: 'form-quotte',
-		url: encodeURI(`${mainUrl}`),
+		url: `${mainUrl}`,
 		terminacion: 'cotizaciones/',
 		options: {},
 		cbSuccess: (res) => {
@@ -60,7 +60,7 @@ export const init = [
 	{
 		coments: 'save cotizacion nueva en mongo',
 		page: 'cotizacion-nueva',
-		url: encodeURI(`${mainUrl}/cotizacion-nueva`),
+		url: `${mainUrl}/cotizacion-nueva`,
 		options: {
 			method: 'POST',
 			headers: {
@@ -75,7 +75,7 @@ export const init = [
 	{
 		comments: 'actualiza cotizacion',
 		page: 'modifica-cotizacion',
-		url: encodeURI(`${mainUrl}/modifica-cotizacion/`),
+		url: `${mainUrl}/modifica-cotizacion/`,
 		options: {
 			method: 'PUT',
 			headers: {

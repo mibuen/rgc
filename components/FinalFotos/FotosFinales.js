@@ -16,6 +16,7 @@ export function FotosFinales() {
 	$form.appendChild(FotoGrid());
 
 	cotInp.addEventListener('change', async (e) => {
+		$form.querySelector('#foto-grid').innerHTML = null;
 		rawData = await getProyectosInCot(e);
 		prjSel.innerHTML = getOptions(rawData);
 	});

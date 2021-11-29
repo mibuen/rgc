@@ -1,5 +1,4 @@
 import { mainUrl } from '../../components/init';
-// const url = `${mainUrl}/proyecto`;
 export async function saveProject(cot, nprj) {
 	const opts = {
 		method: 'POST',
