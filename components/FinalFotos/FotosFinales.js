@@ -15,12 +15,12 @@ export function FotosFinales() {
 	let rawData = [];
 	$form.appendChild(FotoGrid());
 
-	cotInp.addEventListener('change', async (e) => {
+	cotInp.addEventListener('input', async (e) => {
 		$form.querySelector('#foto-grid').innerHTML = null;
 		rawData = await getProyectosInCot(e);
 		prjSel.innerHTML = getOptions(rawData);
 	});
-	prjSel.addEventListener('change', () => {
+	prjSel.addEventListener('input', () => {
 		const [proyecto] = rawData.filter(
 			(item) => item.proyectoId === parseInt(prjSel.value, 10)
 		);
