@@ -11,8 +11,8 @@ export function InitializeFotos($form, proyecto) {
 	const $fotoInicial = $form.querySelector('#foto-inicial');
 	const $fotoFinal = $form.querySelector('#foto-final');
 	const $itemTitle = $form.querySelector(`#title-item`);
-	$sitio.innerHTML = proyecto.sitio;
-	$itemTitle.innerHTML = `${vistas[0].item}`;
+	$sitio.innerHTML = `Sitio: ${proyecto.sitio}`;
+	$itemTitle.innerHTML = `Item: ${vistas[0].item}`;
 	$fotoInicial.src = `${awsUrl}/${vistas[0].inicio}`;
 	$fotoFinal.src = vistas[0].final.includes('tbd')
 		? '/camera.png'

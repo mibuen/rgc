@@ -25,7 +25,7 @@ export function FotosFinales() {
 			(item) => item.proyectoId === parseInt(prjSel.value, 10)
 		);
 		//console.log(proyecto);
-		const { vistas } = proyecto;
+		//const { vistas } = proyecto;
 		//console.log(vistas);
 		localStorage.setItem('index', 0);
 		InitializeFotos($form, proyecto);

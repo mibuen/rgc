@@ -12,6 +12,7 @@ export function htmlGridFotos() {
     <h4 id="title-item"></h4>
   </div>
   <div class="border-2 border-black rounded">
+  <h4>Foto al Iniciar</h4>
     <img
       id="foto-inicial"
       class="object-cover w-full"
@@ -36,6 +37,7 @@ export function htmlGridFotos() {
     </div>
   </div>
   <div class="border-2 border-black rounded">
+  <h4>Foto al Terminar</h4>
     <label for="final"
       ><img
         id="foto-final"
