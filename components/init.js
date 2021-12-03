@@ -1,4 +1,5 @@
 import { componentIndex } from '../components/components.index';
+import { creaReporte } from './reporteFotos/creaReporte';
 
 const {
 	AlertSuccess,
@@ -10,8 +11,9 @@ const {
 	FotosInicio,
 	FotosFinales,
 } = componentIndex();
-//export const mainUrl = 'http://0.0.0.0:7001';
-export const mainUrl = `https://rgcingenieria.herokuapp.com`;
+export const mainUrl =
+	'http://0.0.0.0:7001' || 'https://rgcingenieria.herokuapp.com';
+//export const mainUrl = `https://rgcingenieria.herokuapp.com`;
 export const init = [
 	{
 		page: 'home' || '' || '#/',
@@ -131,6 +133,16 @@ export const init = [
 		cbSuccess: () => {
 			//console.log('QUE PASARA');
 			return FotosFinales();
+		},
+	},
+	{
+		comments: 'render form reporte fotos',
+		page: 'reporte',
+		url: '',
+		terminacion: 'reporte',
+		options: {},
+		cbSuccess: () => {
+			Content(creaReporte());
 		},
 	},
 ];

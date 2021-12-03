@@ -4,7 +4,7 @@ import { awsFileUploadHandler } from '../../helpers/aws/awsFileUploadHandler';
 const { Form, Content, DivQuotteForm } = componentIndex();
 
 export function FotosInicio() {
-	console.log('FOT');
+	//console.log('FOT');
 	const div = DivQuotteForm();
 	const $formSubir = Form(htmlSubirForm);
 	div.appendChild($formSubir);

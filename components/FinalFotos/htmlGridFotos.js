@@ -1,5 +1,5 @@
 import { next } from '../../assets/next';
-import { previous } from '../../assets/previous';
+import { previous } from '../../assets/previous.js';
 import { upload } from '../../assets/upload';
 export function htmlGridFotos() {
 	return `

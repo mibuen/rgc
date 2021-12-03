@@ -5,12 +5,12 @@ const { findRoute, ajax } = helpersIndex();
 import { mainUrl } from './init';
 
 export async function Router(loc) {
-	//console.log('LOC', loc);
 	const [hash, dir, end] = loc.split('/');
+
 	const x = !dir ? 'home' : dir;
-	//console.log(x);
+
 	const route = findRoute(x);
-	//console.log('ROUTe', route);
+
 	if (!route) {
 		Content(ErrorMsg({ statusCode: 404, message: 'ruta no existe' }));
 	}

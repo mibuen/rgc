@@ -4,7 +4,7 @@ import { componentIndex } from '../components.index';
 const { Content, Form, FotoGrid } = componentIndex();
 import { getOptions } from './getOptions';
 
-import { getProyectosInCot } from './getProyectsInCot.js';
+import { getProyectosInCot } from '../../helpers/helpersFolder/getProyectsInCot';
 import { InitializeFotos } from './initializeFotos.js';
 import { awsFileUploadHandler } from '../../helpers/aws/awsFileUploadHandler.js';
 
@@ -17,7 +17,7 @@ export function FotosFinales() {
 
 	cotInp.addEventListener('input', async (e) => {
 		$form.querySelector('#foto-grid').innerHTML = null;
-		rawData = await getProyectosInCot(e);
+		rawData = await getProyectosInCot(e.target.value);
 		prjSel.innerHTML = getOptions(rawData);
 	});
 	prjSel.addEventListener('input', () => {

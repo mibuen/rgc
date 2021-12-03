@@ -25,7 +25,7 @@ export const NavLinks = () => {
 
 <a
   class="block px-2 py-1 font-semibold text-indigo-100 rounded hover:bg-indigo-900 w-48"
-  href="#"
+  href="#/reporte"
   >Reporte Proyecto</a
 >`;
 	return $nav;
