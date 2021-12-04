@@ -11,7 +11,7 @@ const {
 	FotosInicio,
 	FotosFinales,
 } = componentIndex();
-//export const mainUrl ='http://0.0.0.0:7001';
+//export const mainUrl = 'http://0.0.0.0:7001';
 export const mainUrl = `https://rgcingenieria.herokuapp.com`;
 export const init = [
 	{

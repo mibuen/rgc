@@ -3,7 +3,7 @@ export async function saveFotoMongo(cotizacionId, proyectoId, tipo, seq, key) {
 	//console.log(tipo, key);
 	const data = { cotizacionId, proyectoId, tipo, seq, key };
 	if (seq === 'NA') delete data.seq;
-	//console.log('DATA', data);
+	console.log('DATA', data);
 	const postOptions = {
 		method: 'POST',
 		headers: {

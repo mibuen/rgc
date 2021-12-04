@@ -94,7 +94,7 @@ export const htmlProyectoCard = (data) => {
 				status === 'facturado' || status === 'terminado' ? '' : 'hidden'
 			}">
 				<label for="factura">Factura:</label>
-				<input type="text" name="direccion" value="${factura || ''}"/>
+				<input type="text" name="factura" value="${factura || ''}"/>
 			</div>
 		</div>
 		<div class="flex justify-between pt-8">

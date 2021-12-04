@@ -7,7 +7,7 @@ export async function awsFileUploadHandler(
 	cotizacionId,
 	proyectoId,
 	tipo,
-	seq = '',
+	seq,
 	file
 ) {
 	try {

@@ -43,7 +43,10 @@ export function FotosFinales() {
 				const uploadBtn = $form.querySelector('#upload');
 				uploadBtn.addEventListener('click', async () => {
 					//get AWS signed post
-					const seq = $form.querySelector('#title-item').innerText;
+					const seq = $form
+						.querySelector('#title-item')
+						.innerText.split(':')[1];
+					//console.log('SEQ', seq);
 					const msg = await awsFileUploadHandler(
 						parseInt(cotInp.value, 10),
 						parseInt(prjSel.value, 10),
