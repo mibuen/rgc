@@ -14,9 +14,7 @@ export const htmlForma = `<h4 class="text-center">Crear Reporte Con Fotos</h4>
   </div>
   <input type="text" id="tipo" value="inicio" class="hidden" />
 </div>
-
 <div id="foto-name" class="h-6 border-b-2 border-indigo-100"></div>
-
 <div class="flex justify-evenly">
   <button type="button" 
     id="genera-pdf"

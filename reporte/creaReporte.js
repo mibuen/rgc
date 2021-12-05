@@ -1,8 +1,8 @@
-import { htmlForma } from './htmlForma';
-import { htmlReporte } from './htmlReporte';
-import { componentIndex } from '../components.index';
+import { htmlForma } from './htmlForma.js';
+import { componentIndex } from '../components/components.index';
 
-import { getProyectosInCot } from '../../helpers/helpersFolder/getProyectsInCot';
+import { getProyectosInCot } from '../helpers/helpersFolder/getProyectsInCot';
+
 const { Content, Form } = componentIndex();
 export function creaReporte() {
 	const $form = Form(htmlForma);
@@ -13,13 +13,12 @@ export function creaReporte() {
 		const proyectoId = $form.proyectoId.value;
 
 		const proyectos = await getProyectosInCot(cotizacionId);
+
 		const [proyecto] = proyectos.filter(
 			(item) => item.proyectoId === parseInt(proyectoId, 10)
 		);
-		const reporteHtml = await htmlReporte(proyecto);
-
-		const thereport = window.open('', '_blank');
-		thereport.document.write(`${reporteHtml}`);
+		localStorage.setItem('proyecto', JSON.stringify(proyecto));
+		return window.open('/reporte/index.html', '_blank');
 	});
 	return Content($form);
 }

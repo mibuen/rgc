@@ -1,4 +1,4 @@
-import './tailwind.css';
+import '/tailwind.css';
 import { App } from './App';
 
 document.addEventListener('DOMContentLoaded', App);

@@ -1,5 +1,5 @@
 import { componentIndex } from '../components/components.index';
-import { creaReporte } from './reporteFotos/creaReporte';
+import { creaReporte } from '../reporte/creaReporte';
 
 const {
 	AlertSuccess,
@@ -141,7 +141,7 @@ export const init = [
 		terminacion: 'reporte',
 		options: {},
 		cbSuccess: () => {
-			Content(creaReporte());
+			creaReporte();
 		},
 	},
 ];
