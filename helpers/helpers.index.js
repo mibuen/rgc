@@ -12,6 +12,9 @@ import { proyectStatusChange } from './helpersFolder/proyectStatusChange';
 import { closeDrawer } from './helpersFolder/closedrawer';
 import { awsSignedPost } from './aws/awsSignedPost';
 import { getData } from './helpersFolder/getData';
+import { loaderFunc } from './helpersFolder/loaderFunc';
+import { getProyectosInCot } from './helpersFolder/getProyectsInCot';
+import { awsFileUploadHandler } from './aws/awsFileUploadHandler';
 
 export function helpersIndex() {
 	return {
@@ -29,5 +32,8 @@ export function helpersIndex() {
 		closeDrawer,
 		awsSignedPost,
 		getData,
+		loaderFunc,
+		getProyectosInCot,
+		awsFileUploadHandler,
 	};
 }

@@ -1,12 +1,11 @@
 import { htmlFotoFinal } from './htmlFormFotoFinal.js';
 import { componentIndex } from '../components.index';
-
-const { Content, Form, FotoGrid } = componentIndex();
+import { helpersIndex } from '../../helpers/helpers.index.js';
 import { getOptions } from './getOptions';
-
-import { getProyectosInCot } from '../../helpers/helpersFolder/getProyectsInCot';
 import { InitializeFotos } from './initializeFotos.js';
-import { awsFileUploadHandler } from '../../helpers/aws/awsFileUploadHandler.js';
+
+const { Content, Form, FotoGrid, ErrorMsg } = componentIndex();
+const { getProyectosInCot, loaderFunc, awsFileUploadHandler } = helpersIndex();
 
 export function FotosFinales() {
 	const $form = Form(htmlFotoFinal);
@@ -17,16 +16,18 @@ export function FotosFinales() {
 
 	cotInp.addEventListener('input', async (e) => {
 		$form.querySelector('#foto-grid').innerHTML = null;
+		prjSel.innerHTML = null;
+		const err = document.querySelector('#err-msg');
+		if (err) err.remove();
+		if (e.target.value === '') return;
 		rawData = await getProyectosInCot(e.target.value);
+		if (rawData.statusCode > 400) return Content(ErrorMsg(rawData));
 		prjSel.innerHTML = getOptions(rawData);
 	});
 	prjSel.addEventListener('input', () => {
 		const [proyecto] = rawData.filter(
 			(item) => item.proyectoId === parseInt(prjSel.value, 10)
 		);
-		//console.log(proyecto);
-		//const { vistas } = proyecto;
-		//console.log(vistas);
 		localStorage.setItem('index', 0);
 		InitializeFotos($form, proyecto);
 
@@ -42,11 +43,10 @@ export function FotosFinales() {
 				});
 				const uploadBtn = $form.querySelector('#upload');
 				uploadBtn.addEventListener('click', async () => {
-					//get AWS signed post
 					const seq = $form
 						.querySelector('#title-item')
 						.innerText.split(':')[1];
-					//console.log('SEQ', seq);
+					loaderFunc();
 					const msg = await awsFileUploadHandler(
 						parseInt(cotInp.value, 10),
 						parseInt(prjSel.value, 10),
@@ -54,7 +54,10 @@ export function FotosFinales() {
 						parseInt(seq, 10),
 						foto
 					);
-					if (msg.modified === 1) location.reload();
+					if (msg.modified === 1) {
+						loaderFunc();
+						location.reload();
+					}
 				});
 			}
 		});

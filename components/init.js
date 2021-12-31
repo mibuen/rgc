@@ -11,18 +11,17 @@ const {
 	FotosInicio,
 	FotosFinales,
 } = componentIndex();
-//export const mainUrl = 'http://0.0.0.0:7001';
-export const mainUrl = `https://rgcingenieria.herokuapp.com`;
+export const mainUrl = 'http://0.0.0.0:7001';
+//export const mainUrl = `https://rgcingenieria.herokuapp.com`;
 export const init = [
 	{
 		page: 'home' || '' || '#/',
 		url: '',
 		options: {},
-		cbSuccess: () => {
+		cbSuccess: () =>
 			Content(
 				`<h1 class="text-4xl text-indigo-500 text-center">This is Home</h1>`
-			);
-		},
+			),
 	},
 	{
 		coments: 'render grid con cotizaciones',
@@ -30,10 +29,7 @@ export const init = [
 		url: `${mainUrl}`,
 		terminacion: 'cotizaciones/',
 		options: {},
-		cbSuccess: async (res) => {
-			//console.log(res);
-			Content(Grid(await CotizacionCard(res)));
-		},
+		cbSuccess: async (res) => Content(Grid(await CotizacionCard(res))),
 	},
 	{
 		coments: 'render grid con proyectos',
@@ -41,9 +37,7 @@ export const init = [
 		url: `${mainUrl}`,
 		terminacion: 'proyectos/',
 		options: {},
-		cbSuccess: async (res) => {
-			Content(FormGridProyects(res));
-		},
+		cbSuccess: async (res) => Content(FormGridProyects(res)),
 	},
 	{
 		coments: 'render forma cotizacion nueva o para actualizar',
@@ -51,12 +45,8 @@ export const init = [
 		url: `${mainUrl}`,
 		terminacion: 'cotizaciones/',
 		options: {},
-		cbSuccess: (res) => {
-			//console.log('RES', res);
-			return res.length === 1
-				? Content(QuotteForm(res[0]))
-				: Content(QuotteForm());
-		},
+		cbSuccess: (res) =>
+			res.length === 1 ? Content(QuotteForm(res[0])) : Content(QuotteForm()),
 	},
 	{
 		coments: 'save cotizacion nueva en mongo',
@@ -69,9 +59,8 @@ export const init = [
 			},
 			body: '',
 		},
-		cbSuccess: (res) => {
-			return Content(AlertSuccess(`Cotizacion # ${res.cotizacionId} agregada`));
-		},
+		cbSuccess: (res) =>
+			Content(AlertSuccess(`Cotizacion # ${res.cotizacionId} agregada`)),
 	},
 	{
 		comments: 'actualiza cotizacion',
@@ -84,17 +73,16 @@ export const init = [
 			},
 			body: '',
 		},
-		cbSuccess: (res) => {
-			return Content(
+		cbSuccess: (res) =>
+			Content(
 				AlertSuccess(
 					`${
 						res.modifiedCount > 0
-							? `la cotizacion ${res.cotizacionId} se actualizo`
+							? `cotizacion ${res.cotizacionId} actualizada`
 							: ''
 					}`
 				)
-			);
-		},
+			),
 	},
 	{
 		comments: 'post new proyect in to mongo',
@@ -108,9 +96,7 @@ export const init = [
 			},
 			body: '',
 		},
-		cbSuccess: (res) => {
-			return Content(AlertSuccess(res));
-		},
+		cbSuccess: (res) => Content(AlertSuccess(res)),
 	},
 	{
 		comments: 'render form SUBIR FOTOS INICIO',
@@ -118,21 +104,15 @@ export const init = [
 		url: '',
 		terminacion: 'subir',
 		options: {},
-		cbSuccess: () => {
-			//return console.log('YA Chingamos');
-			return FotosInicio();
-		},
+		cbSuccess: () => FotosInicio(),
 	},
 	{
-		comments: 'render form SUBIR FOTOS INICIO',
+		comments: 'render form SUBIR FOTOS Finales',
 		page: 'finales',
 		url: '',
 		terminacion: 'finales',
 		options: {},
-		cbSuccess: () => {
-			//console.log('QUE PASARA');
-			return FotosFinales();
-		},
+		cbSuccess: () => FotosFinales(),
 	},
 	{
 		comments: 'render form reporte fotos',
@@ -140,8 +120,6 @@ export const init = [
 		url: '',
 		terminacion: 'reporte',
 		options: {},
-		cbSuccess: () => {
-			creaReporte();
-		},
+		cbSuccess: () => creaReporte(),
 	},
 ];
